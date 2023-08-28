@@ -1,9 +1,20 @@
 import pygame
+from pygame import mixer #module for audio 
 import sys
 import random
 
 # Initialize pygame
 pygame.init()
+mixer.init()
+mixer.music.load('./music.mp3')
+'''
+1. music will run in background untill the game is not finished.
+2. play(loops=0, start=0.0, fade_ms=0) -> None
+3. The music repeats indefinitely if this argument is set to -1.
+'''
+mixer.music.play(-1,0,0) 
+
+
 
 # Constants
 SCREEN_WIDTH = 1000  # Increased width
@@ -23,11 +34,11 @@ pygame.display.set_caption("Virus Hunter Game")
 clock = pygame.time.Clock()
 
 # Load images
-background_image = pygame.image.load("/Users/shivamkrishana/Desktop/game/background.png")
+background_image = pygame.image.load("./background.png")
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
-virus_image = pygame.image.load("/Users/shivamkrishana/Desktop/game/virus.png")
+virus_image = pygame.image.load("./virus.png")
 virus_image = pygame.transform.scale(virus_image, (VIRUS_SIZE, VIRUS_SIZE))
-cell_image = pygame.image.load("/Users/shivamkrishana/Desktop/game/cell.png")
+cell_image = pygame.image.load("./cell.png")
 cell_image = pygame.transform.scale(cell_image, (CELL_SIZE, CELL_SIZE))
 
 # Initialize the virus
