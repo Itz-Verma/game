@@ -7,6 +7,7 @@ import random
 pygame.init()
 mixer.init()
 mixer.music.load('./music.mp3')
+music_playing = True
 '''
 1. music will run in background untill the game is not finished.
 2. play(loops=0, start=0.0, fade_ms=0) -> None
